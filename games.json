@@ -1,0 +1,54 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Elden Ring",
+      "tags": ["Openworld", "RPG", "Singleplayer"]
+    },
+    {
+      "id": 2,
+      "title": "Overwatch",
+      "tags": ["FPS", "Multiplayer", "Heroshooter"]
+    },
+    {
+      "id": 3,
+      "title": "Minecraft",
+      "tags": ["Openworld", "Sandbox", "Singleplayer"]
+    },
+    {
+      "id": 4,
+      "title": "Black Myth: Wukong",
+      "tags": ["Action RPG", "Action", "RPG", "Souls-like", "Mythology"]
+    },
+    {
+      "id": 5,
+      "title": "Helldivers 2",
+      "tags": ["Third-Person shooter", "Online CO-OP", "Action", "PVE"]
+    },
+    {
+      "id": 6,
+      "title": "Dragon's Dogma 2",
+      "tags": ["Openworld", "RPG", "Action RPG", "Fantasy", "Magic"]
+    },
+    {
+      "id": 7,
+      "title": "Indiana Jones and the Great Circle",
+      "tags": ["Action-Adventure", "First-Person", "Story rich", "Puzzle"]
+    },
+    {
+      "id": 8,
+      "title": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+      "tags": ["Openworld", "FPS", "Post-Apocalyptic", "Survival"]
+    },
+    {
+      "id": 9,
+      "title": "Sea of Thieves",
+      "tags": ["Openworld", "Multiplayer", "Adventure", "Pirates"]
+    },
+    {
+      "id": 10,
+      "title": "Baldur's Gate 3",
+      "tags": ["Adventure", "RPG", "Dungeons & Dragons", "Fantasy", "Strategy", "Turn-Based Combat"]
+    }
+  ]
+}
