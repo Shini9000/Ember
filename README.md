@@ -11,3 +11,7 @@ With a unique tag system that updates based on your preferences.
 > - Fav
 > From there you select the game/s you wish to mark with that title.
 > Games can be found by selecting the tags on the left-hand side.
+
+Clicking **Game Info** will now display information about each game selected... Now with images!
+
+###### *Ver: 0.2*

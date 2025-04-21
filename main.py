@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk,messagebox
 import json
+from PIL import Image, ImageTk
 
 # Add this function here
 def load_games():
@@ -99,9 +100,18 @@ class GameTagApp:
         self.canvas.bind_all("<MouseWheel>", self.on_mousewheel)
 
     def create_games_ui(self):
-        """Creates the listbox where filtered games are displayed."""
-        self.games_listbox = tk.Listbox(self.games_frame, height=10, width=40)
-        self.games_listbox.pack(padx=5, pady=5, fill="both", expand=True)
+        """Creates the listbox where filtered games are displayed and shows game count."""
+        # Create a frame to hold both the listbox and counter
+        games_container = ttk.Frame(self.games_frame)
+        games_container.pack(fill="both", expand=True, padx=5, pady=5)
+
+        # Create counter label
+        self.games_counter = ttk.Label(games_container, text="Total Games: 0")
+        self.games_counter.pack(anchor="w", padx=5, pady=(0, 5))
+
+        # Create listbox
+        self.games_listbox = tk.Listbox(games_container, height=10, width=40)
+        self.games_listbox.pack(fill="both", expand=True)
         self.games_listbox.bind("<<ListboxSelect>>", self.on_game_select)
 
     def create_actions_ui(self):
@@ -124,9 +134,68 @@ class GameTagApp:
         save_button = ttk.Button(self.actions_frame, text="Save Status", command=self.save_status)
         save_button.grid(row=0, column=2, padx=5, pady=5)
 
-        ## Refresh Button
-        refresh_button = ttk.Button(self.actions_frame, text="Refresh Status", command=self.refresh_status)
-        refresh_button.grid(row=0, column=3, padx=5, pady=5)
+        ## Game info Button
+        gameInfo_button = ttk.Button(self.actions_frame, text="Game info", command=self.gameInfo)
+        gameInfo_button.grid(row=0, column=3, padx=5, pady=5)
+
+       # # Fix: Remove the parentheses from create_custom_popup
+       # image_button = ttk.Button(self.actions_frame, text="Image", command=self.create_custom_popup)
+       # image_button.grid(row=1, column=0, padx=5, pady=5)
+
+    def gameInfo(self):
+        if not self.selected_game.get():
+            return
+
+        selected_game_data = next((game for game in games if game['title'] == self.selected_game.get()), None)
+        if not selected_game_data:
+            messagebox.showinfo("Error", "Game not found!")
+            return
+
+        # Check if image exists before creating the window
+        image_path = f"games/{self.selected_game.get()}.png"
+        try:
+            image = Image.open(image_path)
+        except Exception as e:
+            messagebox.showinfo("Error", f"Image not found for {self.selected_game.get()}")
+            return
+
+        # Create the popup window only if image exists
+        popup = tk.Toplevel(self.root)
+        popup.title("Game info")
+        popup.geometry("250x150")
+        popup.resizable(False, False)
+        popup.iconbitmap("embericon.ico")
+        popup.configure(bg="lightblue")
+        
+        # Make the popup modal
+        popup.grab_set()
+
+        game_id = str(selected_game_data['id'])
+
+        # Get the game's status from user_preferences
+        status = "Not set"
+        if game_id in user_preferences['game_status']:
+            status = user_preferences['game_status'][game_id]['status']
+
+        # Resize and display the image
+        image = image.resize((200, 200), Image.Resampling.LANCZOS)
+        photo = ImageTk.PhotoImage(image)
+        popup.image = photo  # Keep a reference to prevent garbage collection
+        image_label = ttk.Label(popup, image=photo)
+        image_label.pack(pady=10)
+
+        # Adjust window size to fit the image
+        popup.geometry("")  # Auto-size the window
+        
+        # Add game information
+        label = ttk.Label(popup, text=f"Game selected: {self.selected_game.get()}\n"
+                                  f"Current status: {status}\n"
+                                  f"Rating: null", background="lightblue")
+        label.pack(pady=10)
+        
+        # Add a close button
+        close_button = ttk.Button(popup, text="Close", command=popup.destroy)
+        close_button.pack(pady=10)
 
 
     def filter_games(self):
@@ -142,6 +211,9 @@ class GameTagApp:
         self.games_listbox.delete(0, tk.END)  # Clear previous games
         for game in self.filtered_games:
             self.games_listbox.insert(tk.END, game['title'])
+
+        # Update counter
+        self.games_counter.config(text=f"Total Games: {len(self.filtered_games)} / {len(games)}")
 
     def on_game_select(self, event):
         """Handles selecting a game in the listbox."""
@@ -222,11 +294,6 @@ class GameTagApp:
 
         messagebox.showinfo("", "Game " + game_title + " Status " + status + " Saved Successfully!")
 
-    def refresh_status(self): ### error it loops
-        """Filters games based on selected tags."""
-        self.filter_games()
-        messagebox.showinfo("Refresh Status", "Status Refreshed")
-
     def load_preferences(self):
         """Load saved preferences if they exist."""
         global user_preferences
@@ -252,6 +319,7 @@ class GameTagApp:
         """Handle mouse wheel scrolling"""
         self.canvas.yview_scroll(-1 * (event.delta // 120), "units")
 
+    
 # Initialize Tkinter
 root = tk.Tk()
 app = GameTagApp(root)

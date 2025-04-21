@@ -3,52 +3,85 @@
     {
       "id": 1,
       "title": "Elden Ring",
-      "tags": ["Openworld", "RPG", "Singleplayer"]
+      "logo": "logo/EldenRing.png",
+      "tags": ["Action RPG", "Open-World", "Soulslike", "Dark fantasy", "Challenging combat",
+        "Multiplayer", "Lore-rich", "Boss battles", "Character Customization", "Atmospheric Storytelling"]
     },
     {
       "id": 2,
       "title": "Overwatch",
-      "tags": ["FPS", "Multiplayer", "Heroshooter"]
+      "tags": ["FPS", "Team-Based Multiplayer", "Hero shooter", "Objective-Based", "Competitive",
+        "Class-Based gameplay", "Fast paced", "ESports", "Cooperative play", "Strategic"]
     },
     {
       "id": 3,
       "title": "Minecraft",
-      "tags": ["Openworld", "Sandbox", "Singleplayer"]
+      "tags": ["Sandbox", "Survival", "Open-World", "Crafting", "Multiplayer",
+        "Singeplayer", "Moddable", "Exploration", "Building", "Creative", "Kids"]
     },
     {
       "id": 4,
-      "title": "Black Myth: Wukong",
-      "tags": ["Action RPG", "Action", "RPG", "Souls-like", "Mythology"]
+      "title": "Black Myth Wukong",
+      "tags": ["Action RPG", "Dark fantasy", "Challenging combat", "Soulslike", "Mythical",
+        "Open-World", "Boss battles", "Martial arts", "Story-rich", "Atmospheric"]
     },
     {
       "id": 5,
       "title": "Helldivers 2",
-      "tags": ["Third-Person shooter", "Online CO-OP", "Action", "PVE"]
+      "tags": ["Cooperative Shooter", "Extraction", "SCI-FI", "PvE", "Objective-Based",
+        "Class-Based gameplay", "Strategic", "Fast paced", "Multiplayer", "Challenging combat",
+      "Space"]
     },
     {
       "id": 6,
       "title": "Dragon's Dogma 2",
-      "tags": ["Openworld", "RPG", "Action RPG", "Fantasy", "Magic"]
+      "tags": ["Open-world", "Party-Based Combat", "Action RPG", "Fantasy", "Story-Rich",
+        "Boss battles", "Character Customization", "Mythical", "Medieval", "Action-Adventure"]
     },
     {
       "id": 7,
       "title": "Indiana Jones and the Great Circle",
-      "tags": ["Action-Adventure", "First-Person", "Story rich", "Puzzle"]
+      "tags": ["Action-Adventure", "First-Person", "Story-Rich", "Puzzle", "Political",
+        "Stealth", "Exploration", "Platformer", "Singleplayer", "Realistic"]
     },
     {
       "id": 8,
-      "title": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
-      "tags": ["Openworld", "FPS", "Post-Apocalyptic", "Survival"]
+      "title": "S.T.A.L.K.E.R. 2 Heart of Chornobyl",
+      "tags": ["Open-world", "FPS", "Post-Apocalyptic", "Survival", "Atmospheric",
+        "Exploration", "Realistic", "Choices Matter", "Lore-rich", "Singleplayer"]
     },
     {
       "id": 9,
       "title": "Sea of Thieves",
-      "tags": ["Openworld", "Multiplayer", "Adventure", "Pirates"]
+      "tags": ["Open-world", "Multiplayer", "Sailing", "Pirates", "PvP", "Atmospheric",
+        "PvE", "Singleplayer", "Exploration", "Action-Adventure"]
     },
     {
       "id": 10,
       "title": "Baldur's Gate 3",
-      "tags": ["Adventure", "RPG", "Dungeons & Dragons", "Fantasy", "Strategy", "Turn-Based Combat"]
+      "tags": ["RPG", "Turn-Based Combat", "Fantasy", "Multiplayer", "Character Customization",
+        "Story-Rich", "Open-World", "Choices Matter", "Dungeon Crawler", "Cinematic",
+        "Great soundtrack"]
+    },
+    {
+      "id": 11,
+      "title": "The Last of Us Part I",
+      "tags": ["Story-Rich", "Post-Apocalyptic", "3PS", "Survival", "Cinematic",
+        "Action-Adventure", "Emotional", "Thriller", "Atmospheric", "Horror",
+        "Great soundtrack"]
+    },
+    {
+      "id": 12,
+      "title": "Dungeons of Dreadrock",
+      "tags": ["Indie", "Old School", "Puzzle", "Action-Adventure", "Pixel",
+        "Platformer", "Dungeon Crawler", "Top-Down", "Singleplayer", "Fantasy"]
+    },
+    {
+      "id": 13,
+      "title": "Outer Wilds",
+      "tags": ["Exploration", "Space", "Story-Rich", "Action-Adventure", "Great soundtrack",
+        "Atmospheric", "Puzzle", "Singleplayer", "Indie", "SCI-FI",
+        "Open-World"]
     }
   ]
 }
